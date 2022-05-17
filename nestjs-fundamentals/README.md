@@ -28,6 +28,7 @@ $ yarn
 $ yarn run start
 
 # watch mode
+$ docker-composer up -d
 $ yarn run start:dev
 
 # production mode
