@@ -9,13 +9,14 @@ import {
   Patch,
   Post,
   Query,
+  SetMetadata,
 } from '@nestjs/common';
 import { CoffeesService } from './coffees.service';
 
 @Controller('coffees')
 export class CoffeesController {
   constructor(private readonly coffeService: CoffeesService) {}
-
+  @SetMetadata('isPublic', true)
   @Get()
   findAll(@Query() paginationQuery) {
     return this.coffeService.findAll(paginationQuery);
