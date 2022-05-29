@@ -8,7 +8,7 @@ import { useState } from "react";
 // Max post to query per page
 const LIMIT = 1;
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   const postsQuery = firestore
     .collectionGroup("posts")
     .where("published", "==", true)
