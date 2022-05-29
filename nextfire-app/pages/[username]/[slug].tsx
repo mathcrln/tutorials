@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useContext } from "react";
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   const { username, slug } = params;
   const userDoc = await getUserWithUsername(username);
 
@@ -20,9 +20,7 @@ export async function getStaticProps({ params }) {
   if (userDoc) {
     const postRef = userDoc.ref.collection("posts").doc(slug);
     post = postToJSON(await postRef.get());
-    console.log("REF", await (await postRef.get()).data());
     path = postRef.path;
-    console.log(path);
   }
 
   return {
@@ -49,7 +47,7 @@ export async function getStaticPaths() {
   };
 }
 
-export default function Post(props) {
+export default function Post(props: any) {
   const postRef = firestore.doc(props.path);
   const [realtimePost] = useDocumentData(postRef);
 

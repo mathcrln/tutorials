@@ -1,17 +1,22 @@
 import { Post } from "models/Post";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 interface IPostFeed {
-  posts: Post[];
+  posts: Post[] | any;
   admin?: any;
 }
 
-export default function PostFeed({ posts, admin }: IPostFeed): React.ReactNode {
-  return posts
-    ? posts.map((post) => (
-        <PostItem post={post} key={post.slug} admin={admin} />
-      ))
-    : null;
+export default function PostFeed({ posts, admin }: IPostFeed): JSX.Element {
+  return (
+    <>
+      {posts
+        ? posts.map((post: Post) => (
+            <PostItem post={post} key={post.slug} admin={admin} />
+          ))
+        : null}
+    </>
+  );
 }
 
 function PostItem({ post, admin = false }: { post: Post; admin: any }) {

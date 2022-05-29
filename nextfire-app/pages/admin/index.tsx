@@ -52,7 +52,7 @@ function CreateNewPost() {
   const isValid = title.length > 3 && title.length < 100;
 
   // Create a new post in firestore
-  const createPost = async (e) => {
+  const createPost = async (e: any) => {
     e.preventDefault();
     const uid = auth?.currentUser?.uid;
     const ref = firestore
