@@ -40,7 +40,7 @@ function SignInButton() {
 
   return (
     <button className="btn-google" onClick={signInWithGoogle}>
-      <Image
+      <img
         src={"/google.png"}
         alt="Sign in with Google"
         height={30}

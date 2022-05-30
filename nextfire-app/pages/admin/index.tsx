@@ -30,7 +30,9 @@ function PostList() {
   const query = ref.orderBy("createdAt");
   const [querySnapshot] = useCollection(query);
 
-  const posts = querySnapshot?.docs.map((doc) => doc.data());
+  const posts = querySnapshot?.docs.map((doc: { data: () => any }) =>
+    doc.data()
+  );
 
   return (
     <>
